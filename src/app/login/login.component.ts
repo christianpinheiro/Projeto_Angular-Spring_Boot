@@ -27,10 +27,20 @@ export class LoginComponent implements OnInit {
   password = '';
 
   postLogin(username: string, password: string): Observable<any> {
-    return this.http.post(this.site + '/login', {
+    return this.http.post<Auth>(this.site + '/login', {
       login: username,
       password: password,
     });
+  }
+
+  changeForms(){
+    document.querySelectorAll<HTMLElement>("#divForms > div").forEach((el) => {
+      if(el.style.display != "none") {
+        el.style.display = 'none';
+    } else {
+        el.style.display = 'block';
+    }
+    })
   }
 
   login() {
