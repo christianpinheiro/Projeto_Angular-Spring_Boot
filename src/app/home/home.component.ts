@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private storage: StorageService, private router: Router) { }
+
+  postLogout() {
+    this.storage.clear();
+    console.log(this.storage.getData('auth'));
+    this.router.navigate(['login']);
+  }
 
   ngOnInit(): void {
   }

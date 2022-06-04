@@ -1,28 +1,26 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MensagemComponent } from './componentes/mensagem/mensagem.component';
-import { MensagemModule } from './componentes/mensagem/mensagem.module';
+import { LoginModule } from './login/login.module';
+import { MensagemModule } from './mensagem/mensagem.module';
+import { StorageService } from './services/storage.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
     MensagemModule,
+    LoginModule
   ],
-  providers: [],
+  providers: [StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
