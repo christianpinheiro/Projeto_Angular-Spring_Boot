@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
 
   username = 'admin';
   password = '';
+  c_username = '';
+  c_password ='';
 
   postLogin(username: string, password: string): Observable<any> {
     return this.http.post<Auth>(this.site + '/login', {
@@ -55,6 +57,9 @@ export class LoginComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+  createUser(){
+
   }
 
   ngOnInit(): void {
