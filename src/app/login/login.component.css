@@ -10,11 +10,16 @@
 }
 
 .conteiner-forms-login{
-    margin-top: 60px;
     z-index: 2;
     border-radius: 0;
-    padding: 4rem 3rem;
     color: #6c757d;;
+}
+
+#divForms > div:first-child{
+    padding: 4rem 3rem;
+}
+#divForms > div:last-child{
+    padding: 1rem 3rem;
 }
 
 .conteiner-forms-login div.form-group, .conteiner-forms-login button{
