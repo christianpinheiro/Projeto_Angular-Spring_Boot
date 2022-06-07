@@ -10,6 +10,17 @@ interface Auth {
   profile: Array<string>;
 }
 
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  url: string;
+  profiles: Array<string>;
+  login: string;
+  password: string;
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -26,7 +37,10 @@ export class LoginComponent implements OnInit {
   username = 'admin';
   password = '';
   c_username = '';
-  c_password ='';
+  c_password = '';
+  c_email = '';
+  c_telefone = '';
+  c_name = '';
 
   postLogin(username: string, password: string): Observable<any> {
     return this.http.post<Auth>(this.site + '/login', {
@@ -35,14 +49,14 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  changeForms(){
-    document.querySelectorAll<HTMLElement>("#divForms > div").forEach((el) => {
-      if(el.style.display != "none") {
+  changeForms() {
+    document.querySelectorAll<HTMLElement>('#divForms > div').forEach((el) => {
+      if (el.style.display != 'none') {
         el.style.display = 'none';
-    } else {
+      } else {
         el.style.display = 'block';
-    }
-    })
+      }
+    });
   }
 
   login() {
@@ -58,8 +72,28 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  createUser(){
 
+  createUser(): Observable<any> {
+    return this.http.post<User>(this.site + '/api/v1/users', {
+      name: this.c_name,
+      email: this.c_email,
+      phone: this.c_telefone,
+      url: '',
+      profiles: [2],
+      login: this.c_username,
+      password: this.c_password,
+    });
+  }
+
+  createUser_login() {
+    this.createUser().subscribe((data) => {
+      console.log(data);
+      this.postLogin(data.login, this.c_password).subscribe((dataAuth) => {
+        this.storage.setData('auth', dataAuth);
+        console.log(this.storage.getData('auth'));
+        this.router.navigate(['home']);
+      });
+    });
   }
 
   ngOnInit(): void {

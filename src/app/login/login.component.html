@@ -1,72 +1,84 @@
 <div class="container-fluid conteiner-login">
   <div class="row">
     <div class="col-md-4 mb-2 conteiner-forms-login">
-      <!-- logo -->
-      <div class="mb-3">
-        <img src="../../assets/images/MLW_Store_sm.jpg" alt="Logo da loja" />
-      </div>
-
       <div id="divForms">
         <div>
-          <div>
-            <h4 class="text">Entrar</h4>
-            <p class="text-muted">Digite seu usuário e senha para acessar.</p>
+          <!-- logo -->
+          <div class="mb-3">
+            <img
+              src="../../assets/images/MLW_Store_sm.jpg"
+              alt="Logo da loja"
+              style="margin-top: 60px"
+            />
           </div>
-          <form class="form mt-4" (ngSubmit)="login()" #loginForm="ngForm">
-            <div class="form-group">
-              <label for="username">Nome de usuário</label>
-              <input
-                required
-                #inputUser="ngModel"
-                id="username"
-                name="username"
-                class="form-control"
-                placeholder="Digite seu nome de usuário"
-                type="text"
-                [(ngModel)]="username"
-              />
-              <app-mensagem
-                *ngIf="inputUser.invalid && inputPassword.touched"
-                mensagem="Usuário obrigatório"
-              ></app-mensagem>
+          <div>
+            <div>
+              <h4 class="text">Entrar</h4>
+              <p class="text-muted">Digite seu usuário e senha para acessar.</p>
             </div>
+            <form class="form mt-4" (ngSubmit)="login()" #loginForm="ngForm">
+              <div class="form-group">
+                <label for="username">Nome de usuário</label>
+                <input
+                  required
+                  #inputUser="ngModel"
+                  id="username"
+                  name="username"
+                  class="form-control"
+                  placeholder="Digite seu nome de usuário"
+                  type="text"
+                  [(ngModel)]="username"
+                />
+                <app-mensagem
+                  *ngIf="inputUser.invalid && inputPassword.touched"
+                  mensagem="Usuário obrigatório"
+                ></app-mensagem>
+              </div>
 
-            <div class="form-group">
-              <label for="password">Senha</label>
-              <input
-                required
-                #inputPassword="ngModel"
-                id="password"
-                name="password"
-                class="form-control"
-                placeholder="Digite sua senha"
-                type="password"
-                [(ngModel)]="password"
-              />
-              <app-mensagem
-                *ngIf="inputPassword.invalid && inputPassword.touched"
-                mensagem="Senha obrigatória"
-              ></app-mensagem>
-              <a href="javascript:void(0)" (click)="changeForms()"
-                >Novo por aqui?</a
+              <div class="form-group">
+                <label for="password">Senha</label>
+                <input
+                  required
+                  #inputPassword="ngModel"
+                  id="password"
+                  name="password"
+                  class="form-control"
+                  placeholder="Digite sua senha"
+                  type="password"
+                  [(ngModel)]="password"
+                />
+                <app-mensagem
+                  *ngIf="inputPassword.invalid && inputPassword.touched"
+                  mensagem="Senha obrigatória"
+                ></app-mensagem>
+                <a href="javascript:void(0)" (click)="changeForms()"
+                  >Novo por aqui?</a
+                >
+              </div>
+              <button
+                style="background-color: var(--tertiary)"
+                type="submit"
+                class="btn btn-primary col-12 mt-4"
+                [disabled]="loginForm.invalid"
               >
-            </div>
-            <button
-              style="background-color: var(--tertiary)"
-              type="submit"
-              class="btn btn-primary col-12 mt-4"
-              [disabled]="loginForm.invalid"
-            >
-              <i class="fa-solid fa-right-to-bracket"></i> Entrar
-            </button>
-          </form>
+                <i class="fa-solid fa-right-to-bracket"></i> Entrar
+              </button>
+            </form>
+          </div>
         </div>
 
         <div style="display: none">
+          <!-- logo -->
+          <div class="mb-3">
+            <img
+              src="../../assets/images/MLW_Store_sm.jpg"
+              alt="Logo da loja"
+            />
+          </div>
           <div>
             <h4 class="text">Criar usuário</h4>
           </div>
-          <form class="form mt-4" (ngSubmit)="createUser()" #userForm="ngForm">
+          <form class="form mt-4" (ngSubmit)="createUser_login()" #userForm="ngForm">
             <div class="form-group">
               <label for="username">Nome de usuário</label>
               <input
@@ -77,6 +89,44 @@
                 placeholder="Digite seu nome de usuário"
                 type="text"
                 [(ngModel)]="c_username"
+              />
+            </div>
+            <div class="form-group">
+              <label for="name">Nome completo</label>
+              <input
+                required
+                id="name"
+                name="name"
+                class="form-control"
+                placeholder="Digite seu nome completo"
+                type="text"
+                [(ngModel)]="c_name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input
+                required
+                id="email"
+                name="email"
+                class="form-control"
+                placeholder="Digite seu e-mail"
+                type="email"
+                [(ngModel)]="c_email"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="tell">Celular</label>
+              <input
+                required
+                id="telefone"
+                name="telefone"
+                class="form-control"
+                placeholder="(XX) XXXXX-XXXX"
+                type="tel"
+                [(ngModel)]="c_telefone"
               />
             </div>
 
@@ -91,15 +141,18 @@
                 type="password"
                 [(ngModel)]="c_password"
               />
-              <a href="javascript:void(0)" (click)="changeForms()">Já possui conta? Entrar.</a>
+              <a href="javascript:void(0)" (click)="changeForms()"
+                >Já possui conta? Entrar.</a
+              >
             </div>
             <button
               style="background-color: var(--tertiary)"
               type="submit"
               class="btn btn-primary col-12 mt-4"
-              [disabled]="loginForm.invalid"
+              [disabled]="userForm.invalid"
             >
-              <i class="fa-solid fa-right-to-bracket"></i> Criar conta
+              <i class="fa-solid fa-right-to-bracket"></i> Criar conta e fazer
+              login
             </button>
           </form>
         </div>
