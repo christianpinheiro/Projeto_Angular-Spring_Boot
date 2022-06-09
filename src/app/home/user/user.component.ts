@@ -9,7 +9,8 @@ import { Users } from './models/users';
 export class UserComponent implements OnInit {
 
   users: Users[] = [
-    { _id: '1', name: 'Admin', email: 'admin@admin.com', cel: 99750008 }
+    { _id: '1', name: 'Admin', email: 'admin@admin.com', cel: 99750008 },
+    { _id: '2', name: 'Usuario', email: 'user@user.com', cel: 99000001 }
   ];
   displayedColumns = ['name', 'email', 'cel'];
 
