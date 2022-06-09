@@ -20,23 +20,23 @@
 
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button" (click)="postLogout()">
+        <button mat-button class="menu-button" [routerLink]="['']">
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>
-        <button mat-button class="menu-button" (click)="postLogout()">
+        <button mat-button class="menu-button" [routerLink]="['users']">
             <mat-icon>person</mat-icon>
-            <span>Clientes</span>
+             Clientes
         </button>
-        <button mat-button class="menu-button" (click)="postLogout()">
+        <button mat-button class="menu-button" [routerLink]="['parts']">
             <mat-icon>settings_input_hdmi</mat-icon>
             <span>Peças</span>
         </button>
-        <button mat-button class="menu-button" (click)="postLogout()">
+        <button mat-button class="menu-button" [routerLink]="['brands']">
             <mat-icon>store</mat-icon>
             <span>Marcas</span>
         </button>
-        <button mat-button class="menu-button" (click)="postLogout()">
+        <button mat-button class="menu-button" [routerLink]="['budgets']">
             <mat-icon>attach_money</mat-icon>
             <span>Orçamento</span>
         </button>
