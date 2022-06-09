@@ -1,21 +1,28 @@
-th{
-    font-size: 25px;
-}
-
-td{
-    font-size: 16px;
-}
-
-table{
-    width: 100%;
-}
-
-mat-card{
+mat-card {
     height: calc(100vh - 98px);
     width: calc(200vh - 98px);
 }
 
-mat-toolbar{
+mat-toolbar {
     justify-content: center;
     font-size: 35px;
+    display: flex;
 }
+table {
+    width: 100%;
+}
+
+th {
+    font-size: 25px;
+    background-color: #FF6500;
+    color: white;  
+}
+
+td {
+    font-size: 16px;
+}
+
+tr:nth-child(even) {background-color: #F2F2F2;}
+
+
+

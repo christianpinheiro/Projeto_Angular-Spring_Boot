@@ -13,6 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,10 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatDividerModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     HomeComponent

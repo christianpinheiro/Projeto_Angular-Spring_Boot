@@ -1,1 +1,16 @@
-<p>part works!</p>
+<mat-card>
+
+  <mat-toolbar>Peças</mat-toolbar>
+  
+  <section class="example-section" [formGroup]="toppings">
+    <p><mat-checkbox formControlName="processador">Processador</mat-checkbox></p>
+    <p><mat-checkbox formControlName="memoria">Memória</mat-checkbox></p>
+    <p><mat-checkbox formControlName="vga">Placa de Vídeo</mat-checkbox></p>
+  </section>
+
+  <section class="example-section" [formGroup]="toppings">
+    <h4>Suas escolhas:</h4>
+    {{toppings.value | json}}
+  </section>
+
+</mat-card>

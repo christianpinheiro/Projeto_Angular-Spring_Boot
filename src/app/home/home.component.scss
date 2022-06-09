@@ -16,7 +16,7 @@ mat-sidenav {
     text-align: center;
 }
 
-mat-divider{
+mat-divider {
     margin-top: 16px;
     margin-bottom: 16px;
     background-color: rgba(255, 255, 255, 0.5);
@@ -50,7 +50,7 @@ mat-sidenav-container {
     color: #FF6500;
 }
 
-.banner{
+.banner {
     height: calc(38vh - 98px);
     width: 1900px;
 }
@@ -77,6 +77,7 @@ mat-sidenav-container {
     
     display: flex;
     justify-content: center;
+    align-items: center;
 
     font-size: 2rem;
     color: lightgray;
@@ -85,7 +86,7 @@ mat-sidenav-container {
 
 }
 
-.menu-button{
+.menu-button {
     width: 100%;
     display: flex;
     align-items: center;
@@ -98,7 +99,7 @@ mat-sidenav-container {
 
 }
 
-.menuside:hover{
+.menuside:hover {
     background-color: #FF5101;
 }
 
