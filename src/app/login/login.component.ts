@@ -91,7 +91,6 @@ export class LoginComponent implements OnInit {
       this.postLogin(data.login, this.c_password).subscribe((dataAuth) => {
         this.storage.setData('auth', dataAuth);
         console.log(this.storage.getData('auth'));
-        this.router.navigate(['home']);
       });
     });
   }
